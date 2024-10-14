@@ -1,12 +1,9 @@
 import argparse
+import os
 
 
 def number_of_bytes(file):
-    total_bytes = 0
-    file_lines_list = file.readlines()
-    for line in file_lines_list:
-        total_bytes += len(line.encode("utf-8"))
-    print(total_bytes)
+    print(f"  {os.path.getsize(file.name)} {file.name}")
 
 
 parser = argparse.ArgumentParser()
