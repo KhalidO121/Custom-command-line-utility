@@ -1,2 +1,2 @@
 # Wc-tool
-Building my own version of the Unix command line utility: **wc**
+Building custom version of the Unix command line utility: **wc**
