@@ -48,3 +48,7 @@ elif args.w and args.file:
     print(f"  {number_of_words(args.file)} {args.file.name}")
 elif args.m and args.file:
     print(f"  {number_of_characters(args.file)} {args.file.name}")
+elif args.file:
+    print(
+        f"  {number_of_lines(args.file)} {number_of_words(args.file)} {number_of_bytes(args.file)} {args.file.name}"
+    )
