@@ -8,9 +8,7 @@ def number_of_bytes(file):
 
 
 def number_of_lines(file):
-    fh = open(file.name, "r")
-    file_lines = fh.readlines()
-    return len(file_lines)
+    return len(file)
 
 
 def number_of_words(file):
@@ -51,7 +49,9 @@ def main():
     if args.c and args.file:
         print(f"  {number_of_bytes(args.file)} {args.file.name}")
     elif args.l and args.file:
-        print(f" {number_of_lines(args.file)} {args.file.name}")
+        fh = open(args.file.name, "r")
+        file_lines = fh.readlines()
+        print(f" {number_of_lines(file_lines)} {args.file.name}")
     elif args.w and args.file:
         print(f"  {number_of_words(args.file)} {args.file.name}")
     elif args.m and args.file:
@@ -61,7 +61,7 @@ def main():
             f"  {number_of_lines(args.file)} {number_of_words(args.file)} {number_of_bytes(args.file)} {args.file.name}"
         )
     elif not sys.stdin.isatty():
-        print(sys.stdin.readlines())
+        print(f"{number_of_lines(sys.stdin.readlines())}")
 
 
 if __name__ == "__main__":
