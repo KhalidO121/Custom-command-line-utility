@@ -4,11 +4,18 @@ import sys
 
 
 def number_of_bytes(file):
-    return os.path.getsize(file.name)
+    total_bytes = 0
+    fh = open(file.name, "rb")
+    file_content = fh.readlines()
+    for line in file_content:
+        total_bytes += len(line)
+    return total_bytes
 
 
 def number_of_lines(file):
-    return len(file)
+    fh = open(file.name, "r")
+    file_lines = fh.readlines()
+    return len(file_lines)
 
 
 def number_of_words(file):
@@ -49,9 +56,7 @@ def main():
     if args.c and args.file:
         print(f"  {number_of_bytes(args.file)} {args.file.name}")
     elif args.l and args.file:
-        fh = open(args.file.name, "r")
-        file_lines = fh.readlines()
-        print(f" {number_of_lines(file_lines)} {args.file.name}")
+        print(f" {number_of_lines(args.file)} {args.file.name}")
     elif args.w and args.file:
         print(f"  {number_of_words(args.file)} {args.file.name}")
     elif args.m and args.file:
