@@ -1,39 +1,35 @@
 import argparse
-import os
 import sys
 
 
 def number_of_bytes(file):
-    total_bytes = 0
-    fh = open(file.name, "rb")
-    file_content = fh.readlines()
-    for line in file_content:
-        total_bytes += len(line)
-    return total_bytes
+    with open(file.name, "rb") as f:
+        file_content = f.read()
+        return len(file_content)
 
 
 def number_of_lines(file):
-    fh = open(file.name, "r")
-    file_lines = fh.readlines()
-    return len(file_lines)
+    with open(file.name, "r") as f:
+        file_lines = f.readlines()
+        return len(file_lines)
 
 
 def number_of_words(file):
     total_words = 0
-    fh = open(file.name, "r")
-    file_lines = fh.readlines()
-    for line in file_lines:
-        total_words += len(line.split())
-    return total_words
+    with open(file.name, "r") as f:
+        file_lines = f.readlines()
+        for line in file_lines:
+            total_words += len(line.split())
+        return total_words
 
 
 def number_of_characters(file):
     total_characters = 0
-    fh = open(file.name, "r")
-    file_lines = fh.readlines()
-    for line in file_lines:
-        total_characters += len(line.replace("\n", "  "))
-    return total_characters
+    with open(file.name, "r") as f:
+        file_lines = f.readlines()
+        for line in file_lines:
+            total_characters += len(line.replace("\n", "  "))
+        return total_characters
 
 
 def main():
@@ -56,7 +52,7 @@ def main():
     if args.c and args.file:
         print(f"  {number_of_bytes(args.file)} {args.file.name}")
     elif args.l and args.file:
-        print(f" {number_of_lines(args.file)} {args.file.name}")
+        print(f"  {number_of_lines(args.file)} {args.file.name}")
     elif args.w and args.file:
         print(f"  {number_of_words(args.file)} {args.file.name}")
     elif args.m and args.file:
@@ -66,7 +62,7 @@ def main():
             f"  {number_of_lines(args.file)} {number_of_words(args.file)} {number_of_bytes(args.file)} {args.file.name}"
         )
     elif not sys.stdin.isatty():
-        print(f"{number_of_lines(sys.stdin.readlines())}")
+        print(sys.stdin.read())
 
 
 if __name__ == "__main__":
