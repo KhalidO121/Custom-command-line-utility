@@ -4,6 +4,7 @@ def number_of_bytes(file):
         return len(file_content)
 
 
+# LOOK up textIOWrapper
 def number_of_lines(file):
     with open(file.name, "r") as f:
         file_lines = f.readlines()
