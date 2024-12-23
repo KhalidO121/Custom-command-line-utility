@@ -49,8 +49,6 @@ def main():
         print(
             f"  {number_of_lines(args.file)} {number_of_words(args.file)} {number_of_bytes(args.file)} {args.file.name}"
         )
-    # elif not sys.stdin.isatty():
-    #     print(sys.stdin.read())
 
 
 if __name__ == "__main__":

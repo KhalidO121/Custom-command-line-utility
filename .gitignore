@@ -1,3 +1,5 @@
 __pycache__
 __pychahce__/**
 **.egg-info
+virtual_env
+.pytest_
