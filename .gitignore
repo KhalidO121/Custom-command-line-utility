@@ -3,3 +3,5 @@ __pychahce__/**
 **.egg-info
 virtual_env
 .pytest_
+dist
+build

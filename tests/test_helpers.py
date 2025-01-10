@@ -1,1 +1,1 @@
-from ..helpers import number_of_bytes
+from helpers.helpers import number_of_bytes
