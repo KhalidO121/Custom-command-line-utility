@@ -26,6 +26,7 @@ def main():
     )
 
     args = parser.parse_args()
+    # print(args)
     if args.c and args.file:
         print(f"  {number_of_bytes(args.file)} {args.file.name}")
     elif args.l and args.file:
